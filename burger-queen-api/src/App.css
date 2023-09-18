@@ -1,7 +1,9 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 2rem;
 }
 /* 
 #root {
@@ -18,6 +20,21 @@ body {
   margin: -15% 0% 0% 3%;
   
 }
+/*home*/
+.a-login{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 3%;
+  font-size: 2.5rem;
+  font-weight: 500;
+  border: 1px solid #FF896E;
+  border-radius: 25px;
+  background:#FF896E;
+  text-decoration: inherit;
+}
+
 .containerLogIn {
   display: flex;
   flex-direction: column;
@@ -64,3 +81,4 @@ body {
   border: 1px solid #FF896E;
   background: #FF896E;
 }
+
