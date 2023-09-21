@@ -5,6 +5,7 @@ import './App.css'
 import { Routes, Route } from "react-router-dom"
 import { Home } from './Home'
 import { Login } from './Login'
+import { OrderWaiter } from './OrderWaiter'
 
 
 
@@ -15,6 +16,7 @@ export function App() {
       <Routes>
         <Route path="/" element={< Home />} />
         <Route path="/Login" element={< Login />} />
+        <Route path="/OrderWaiter" element={< OrderWaiter />} />
       </Routes>
 
     </>

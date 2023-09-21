@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 0.7rem;
 }
 /* 
 #root {
@@ -81,4 +81,9 @@ body {
   border: 1px solid #FF896E;
   background: #FF896E;
 }
+p{
+  margin: 3%;
+  font-weight: bold;
+  font-style: italic;
 
+}

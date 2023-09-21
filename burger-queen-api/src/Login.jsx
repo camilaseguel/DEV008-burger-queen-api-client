@@ -1,26 +1,26 @@
 import { useState } from 'react';
 import { loginUser } from './apiRequests';
+/*import { OrderWaiter } from './OrderWaiter';*/
 
 export function Login() {
   const [data, setData] = useState({
     email: '',
     password: '',
   });
-
+  const [error, setError] = useState(false)
+  
   // Agregar un evento click al botón "Log In"
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (data.email && !data.password) {
-      // Se debe llamar a la función handleSubmit para enviar el formulario
 
-      alert('Completar campos vacios---');
-    }
-    if (!data.email && data.password) {
-      alert('Completar campos vacios-.....-');
-    }
     if (data.email && data.password) {
       loginUser(data.email, data.password)
     }
+    if (data.email === "" || data.password === "") {
+      setError(true)
+      return
+    }
+    setError(false)
   };
 
   return (
@@ -44,6 +44,7 @@ export function Login() {
           />
           <button className='LogIn'>Log In</button>
         </form>
+        {error && <p>All fields are required. complete please</p>}
       </div>
     </>
   );
