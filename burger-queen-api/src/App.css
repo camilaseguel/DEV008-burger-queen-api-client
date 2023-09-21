@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+
 }
 /* 
 #root {
@@ -81,4 +81,11 @@ body {
   border: 1px solid #FF896E;
   background: #FF896E;
 }
+.alertError{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: red;
+  font-style: italic;
 
+}

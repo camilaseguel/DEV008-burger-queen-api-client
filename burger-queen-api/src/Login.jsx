@@ -1,26 +1,30 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { loginUser } from './apiRequests';
+import { OrderWaiter } from './OrderWaiter';
 
 export function Login() {
   const [data, setData] = useState({
     email: '',
     password: '',
   });
+  const [error, setError] = useState(false)
+  const navigate = useNavigate();
 
   // Agregar un evento click al botón "Log In"
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (data.email && !data.password) {
-      // Se debe llamar a la función handleSubmit para enviar el formulario
 
-      alert('Completar campos vacios---');
-    }
-    if (!data.email && data.password) {
-      alert('Completar campos vacios-.....-');
-    }
     if (data.email && data.password) {
       loginUser(data.email, data.password)
     }
+
+    if (data.email === "" || data.password === "") {
+      setError(true)
+      return
+    }
+    setError(false)
+    navigate("/OrderWaiter");
   };
 
   return (
@@ -42,8 +46,12 @@ export function Login() {
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
+          <div className='alertError'>
+            {error && <p>All fields are required. complete please</p>}
+          </div>
           <button className='LogIn'>Log In</button>
         </form>
+
       </div>
     </>
   );

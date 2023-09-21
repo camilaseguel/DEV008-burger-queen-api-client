@@ -6,8 +6,8 @@ export function loginUser(email, password) {
     },
     body: JSON.stringify({email, password}),
   })
-    .then((result) => {
-      console.log(result);
+    .then((response) => {
+      console.log(response);
     })
     .catch((error) => {
       console.log(error);
