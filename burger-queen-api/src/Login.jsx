@@ -18,7 +18,7 @@ export function Login() {
     if (data.email && data.password) {
       loginUser(data.email, data.password)
     }
-  
+
     if (data.email === "" || data.password === "") {
       setError(true)
       return
@@ -46,9 +46,12 @@ export function Login() {
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
+          <div className='alertError'>
+            {error && <p>All fields are required. complete please</p>}
+          </div>
           <button className='LogIn'>Log In</button>
         </form>
-        {error && <p>All fields are required. complete please</p>}
+
       </div>
     </>
   );
