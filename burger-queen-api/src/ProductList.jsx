@@ -1,23 +1,30 @@
-import { Link } from "react-router-dom"
-import { orders } from "./apiRequests"
-import { Breakfast } from "./Breakfast"
-import { Lunch } from "./Lunch"
-import { useEffect } from "react"
+import { getProducts } from "./apiRequests"
+import { useEffect, useState } from "react"
 
 export function ProductList() {
+  const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        orders().then((result) => {
-            console.log(result)
-        })
-    }, [])
+  useEffect(() => {
+    getProducts().then((result) => {
+      setProducts(result); // Almacena los resultados en el estado
+    });
+  }, []);
 
-
-    return (
-        <>
-            <h2>BurgerQueen</h2>
-            <Breakfast />
-            <Lunch />
-        </>
-    )
+  return (
+    <>
+      <h2>BurgerQueen</h2>
+      <section>
+        <ul>
+          {products.map((product) => (
+            <li key={product.id}>
+              <p><strong>Product:</strong> {product.name}</p>
+              <p><strong>Type:</strong> {product.type}</p>
+              <p><strong>Price:</strong> {product.price}</p>
+              <p>{product.image}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
 }

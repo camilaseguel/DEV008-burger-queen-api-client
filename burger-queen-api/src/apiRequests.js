@@ -12,7 +12,7 @@ export function loginUser(email, password) {
    
 }
 //parametro sería el token? el token es un endpoint?
-export function orders() {
+export function getProducts() {
   const token = localStorage.getItem('token')
 
   return fetch('http://localhost:8080/products', {
