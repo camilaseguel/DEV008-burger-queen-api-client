@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { loginUser } from './apiRequests';
-import { OrderWaiter } from './OrderWaiter';
 
 export function Login() {
   const [data, setData] = useState({
@@ -16,7 +15,10 @@ export function Login() {
     e.preventDefault();
 
     if (data.email && data.password) {
-      loginUser(data.email, data.password)
+      loginUser(data.email, data.password).then((response) => {
+        console.log(response)
+        localStorage.setItem('token', response.accessToken)
+      })
     }
 
     if (data.email === "" || data.password === "") {
@@ -24,7 +26,7 @@ export function Login() {
       return
     }
     setError(false)
-    navigate("/OrderWaiter");
+    navigate("/ProductList");
   };
 
   return (

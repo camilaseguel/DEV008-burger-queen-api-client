@@ -4,7 +4,9 @@
 import './App.css'
 import { Routes, Route } from "react-router-dom"
 import { Login } from './Login'
-import { OrderWaiter } from './OrderWaiter'
+import { ProductList } from './ProductList'
+import { Breakfast } from './Breakfast'
+import { Lunch } from './Lunch'
 
 
 
@@ -14,7 +16,8 @@ export function App() {
     <>
       <Routes>
         <Route path="/" element={< Login />} />
-        <Route path="/OrderWaiter" element={< OrderWaiter />} />
+        <Route path="/ProductList" element={< ProductList />} />
+        
       </Routes>
 
     </>
