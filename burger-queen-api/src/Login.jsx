@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { loginUser } from './apiRequests';
-import { OrderWaiter } from './OrderWaiter';
 
 export function Login() {
   const [data, setData] = useState({
@@ -15,23 +14,33 @@ export function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (data.email && data.password) {
-      loginUser(data.email, data.password)
+    if (!data.email.trim()) {
+      alert('ingrese su correo ')
     }
 
-    if (data.email === "" || data.password === "") {
-      setError(true)
-      return
+    if (!data.password.trim()) {
+      alert('ingrese su contraseña')
     }
-    setError(false)
-    navigate("/OrderWaiter");
+
+    if (data.email && data.password) {
+      loginUser(data.email, data.password).then((response) => {
+
+        localStorage.setItem('token', response.accessToken)
+        navigate("/ProductList");
+      }).catch((error) => {
+        //Manejar el error aquí, por ejemplo, mostrar una alerta
+        console.error('Error en la solicitud:', error);
+        alert('Hubo un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
+      });
+    }
   };
 
   return (
     <>
-      <img className='logobq' src='./assetsburgerqueen/logoburgerqueen.png' />
-      <div className='containerLogIn'>
+      <img className='logobq' src='./assetsburgerqueen/logoburgerqueen.png' alt='logo' />
+      <section className='containerLogIn'>
         <form className='FormLogIn' onSubmit={handleSubmit}>
+          <label className='label-input'>Email</label>
           <input
             type='email'
             className='formEmail'
@@ -39,6 +48,7 @@ export function Login() {
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
+          <label className='label-input'>Password</label>
           <input
             type='password'
             className='formPassword'
@@ -46,13 +56,10 @@ export function Login() {
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
-          <div className='alertError'>
-            {error && <p>All fields are required. complete please</p>}
-          </div>
           <button className='LogIn'>Log In</button>
         </form>
 
-      </div>
+      </section>
     </>
   );
 }

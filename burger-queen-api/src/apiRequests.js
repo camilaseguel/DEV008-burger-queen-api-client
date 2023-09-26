@@ -1,15 +1,36 @@
 export function loginUser(email, password) {
-  fetch('http://localhost:8080/login', {
-    method: 'POST',
+  return fetch('http://localhost:8080/login', {
+    method: "POST",
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({email, password}),
+    body: JSON.stringify({ email, password }),
+  }).then((response)=>{
+    return response.json();
+
   })
     .then((response) => {
-      console.log(response);
+      if (typeof response === "string") {
+        throw new Error(response);
+      }
+  return response
     })
-    .catch((error) => {
-      console.log(error);
-    });
+
+}
+//parametro sería el token? el token es un endpoint?
+export function getProducts() {
+  const token = localStorage.getItem('token')
+
+  return fetch('http://localhost:8080/products', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`,
+    },
+
+  })
+    .then((response) => {
+      return response.json()
+    })
+
 }

@@ -1,10 +1,22 @@
+*{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center; 
+ 
+  background-color: #FFFF;
+  /* min-width: 320px;
+  min-height: 80vh; */
 
 }
+
 /* 
 #root {
   display: flex;
@@ -13,15 +25,16 @@ body {
   height: 100%;
   width: 100%;
 } */
-.logobq{
-  width: 100%;
-  height: 100%;
+.logobq {
+  width: 90%;
+  height: 90%;
   justify-items: center;
-  margin: -15% 0% 0% 3%;
-  
+  /* margin: -15% 0% 0% 3%; */
+
 }
+
 /*home*/
-.a-login{
+.a-login {
   display: flex;
   justify-content: center;
   width: auto;
@@ -31,7 +44,7 @@ body {
   font-weight: 500;
   border: 1px solid #FF896E;
   border-radius: 25px;
-  background:#FF896E;
+  background: #FF896E;
   text-decoration: inherit;
 }
 
@@ -50,42 +63,43 @@ body {
 
 }
 
+.label-input {
+  margin: 1%;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+
+}
+
 .formEmail {
   height: 100%;
   width: auto;
   margin: 1%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   align-self: stretch;
   border-radius: 25px;
   border: 1px solid #827D7D;
   padding: 20px 20px;
 }
 
-.formPassword{
+.formPassword {
   height: 100%;
   width: auto;
   margin: 1%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   align-self: stretch;
   border-radius: 25px;
   border: 1px solid #827D7D;
   padding: 20px 20px;
 }
-.LogIn{
+
+.LogIn {
   height: auto;
   width: auto;
-  margin: 3%;
+  margin: 3% 1% 1% 1%;
   font-size: 2rem;
   align-self: stretch;
   border-radius: 25px;
   border: 1px solid #FF896E;
   background: #FF896E;
-}
-.alertError{
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  color: red;
-  font-style: italic;
-
 }
