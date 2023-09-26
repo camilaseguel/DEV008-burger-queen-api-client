@@ -1,15 +1,21 @@
-
 export function loginUser(email, password) {
- return fetch('http://localhost:8080/login', {
-    method: 'POST',
+  return fetch('http://localhost:8080/login', {
+    method: "POST",
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({email, password}),
-  }).then((result) => {
-    return result.json();
+    body: JSON.stringify({ email, password }),
+  }).then((response)=>{
+    return response.json();
+
   })
-   
+    .then((response) => {
+      if (typeof response === "string") {
+        throw new Error(response);
+      }
+  return response
+    })
+
 }
 //parametro sería el token? el token es un endpoint?
 export function getProducts() {
@@ -21,10 +27,10 @@ export function getProducts() {
       'Content-Type': 'application/json',
       'authorization': `Bearer ${token}`,
     },
-    
+
   })
     .then((response) => {
       return response.json()
     })
-  
+
 }

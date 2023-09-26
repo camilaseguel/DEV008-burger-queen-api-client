@@ -14,19 +14,25 @@ export function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (data.email && data.password) {
-      loginUser(data.email, data.password).then((response) => {
-        console.log(response)
-        localStorage.setItem('token', response.accessToken)
-      })
+    if (!data.email.trim()) {
+      alert('ingrese su correo ')
     }
 
-    if (data.email === "" || data.password === "") {
-      setError(true)
-      return
+    if (!data.password.trim()) {
+      alert('ingrese su contraseña')
     }
-    setError(false)
-    navigate("/ProductList");
+
+    if (data.email && data.password) {
+      loginUser(data.email, data.password).then((response) => {
+
+        localStorage.setItem('token', response.accessToken)
+        navigate("/ProductList");
+      }).catch((error) => {
+        //Manejar el error aquí, por ejemplo, mostrar una alerta
+        console.error('Error en la solicitud:', error);
+        alert('Hubo un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
+      });
+    }
   };
 
   return (
@@ -48,9 +54,6 @@ export function Login() {
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
-          <div className='alertError'>
-            {error && <p>All fields are required. complete please</p>}
-          </div>
           <button className='LogIn'>Log In</button>
         </form>
 
