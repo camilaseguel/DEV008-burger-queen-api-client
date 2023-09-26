@@ -1,0 +1,105 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+     
+      background-color: #FFFF;
+      /* min-width: 320px;
+      min-height: 80vh; */
+    
+    }
+    
+    /* 
+    #root {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    } */
+    .logobq {
+      width: 90%;
+      height: 90%;
+      justify-items: center;
+      /* margin: -15% 0% 0% 3%; */
+    
+    }
+    
+    /*home*/
+    .a-login {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      height: auto;
+      margin: 3%;
+      font-size: 2.5rem;
+      font-weight: 500;
+      border: 1px solid #FF896E;
+      border-radius: 25px;
+      background: #FF896E;
+      text-decoration: inherit;
+    }
+    
+    .containerLogIn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: auto;
+      height: auto;
+    }
+    
+    .FormLogIn {
+      display: flex;
+      flex-direction: column;
+      margin: -12%;
+    
+    }
+    
+    .label-input {
+      margin: 1%;
+      font-size: 1.5rem;
+      font-weight: bold;
+    
+    
+    }
+    
+    .formEmail {
+      height: 100%;
+      width: auto;
+      margin: 1%;
+      font-size: 1.5rem;
+      align-self: stretch;
+      border-radius: 25px;
+      border: 1px solid #827D7D;
+      padding: 20px 20px;
+    }
+    
+    .formPassword {
+      height: 100%;
+      width: auto;
+      margin: 1%;
+      font-size: 1.5rem;
+      align-self: stretch;
+      border-radius: 25px;
+      border: 1px solid #827D7D;
+      padding: 20px 20px;
+    }
+    
+    .LogIn {
+      height: auto;
+      width: auto;
+      margin: 3% 1% 1% 1%;
+      font-size: 2rem;
+      align-self: stretch;
+      border-radius: 25px;
+      border: 1px solid #FF896E;
+      background: #FF896E;
+    }

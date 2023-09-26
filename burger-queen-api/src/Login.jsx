@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { loginUser } from './apiRequests';
+import './Login.css';
+
 
 export function Login() {
   const [data, setData] = useState({
@@ -37,7 +39,7 @@ export function Login() {
 
   return (
     <>
-      <img className='logobq' src='./assetsburgerqueen/logoburgerqueen.png' alt='logo' />
+      <img className='logobq' src='./assetsburgerqueen/burger-queen-logo.png' alt='logo' />
       <section className='containerLogIn'>
         <form className='FormLogIn' onSubmit={handleSubmit}>
           <label className='label-input'>Email</label>

@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.title-productlist {
+    justify-content: center;
+    margin: 2%;
+    padding: 2%;
+    font-size: 1.5rem;
+}
+
+.container-product {
+    display: grid;
+    margin: 1%;
+    
+    
+}
+
+.img-product{
+    height: 20%;
+    width: 20%;
+
+}
