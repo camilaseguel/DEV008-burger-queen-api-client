@@ -20,7 +20,8 @@ export function ProductList() {
               <p><strong>Product:</strong> {product.name}</p>
               <p><strong>Type:</strong> {product.type}</p>
               <p><strong>Price:</strong> {product.price}</p>
-              <p>{product.image}</p>
+              <img src={product.image} alt="Image product" />
+              {/* <p>{product.image}</p> */}
             </li>
           ))}
         </ul>

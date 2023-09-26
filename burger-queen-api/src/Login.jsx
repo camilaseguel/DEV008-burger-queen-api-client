@@ -37,9 +37,10 @@ export function Login() {
 
   return (
     <>
-      <img className='logobq' src='./assetsburgerqueen/logoburgerqueen.png' />
-      <div className='containerLogIn'>
+      <img className='logobq' src='./assetsburgerqueen/logoburgerqueen.png' alt='logo' />
+      <section className='containerLogIn'>
         <form className='FormLogIn' onSubmit={handleSubmit}>
+          <label className='label-input'>Email</label>
           <input
             type='email'
             className='formEmail'
@@ -47,6 +48,7 @@ export function Login() {
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
+          <label className='label-input'>Password</label>
           <input
             type='password'
             className='formPassword'
@@ -57,7 +59,7 @@ export function Login() {
           <button className='LogIn'>Log In</button>
         </form>
 
-      </div>
+      </section>
     </>
   );
 }
