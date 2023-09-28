@@ -10,6 +10,7 @@ export function Login() {
   const [error, setError] = useState(false)
   const navigate = useNavigate();
 
+  
   // Agregar un evento click al botón "Log In"
   const handleSubmit = (e) => {
     e.preventDefault();
