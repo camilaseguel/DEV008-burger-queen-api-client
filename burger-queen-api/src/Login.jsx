@@ -9,7 +9,8 @@ export function Login() {
     email: '',
     password: '',
   });
-  const [error, setError] = useState(false)
+
+  //Eliminado useState Error
   const navigate = useNavigate();
 
   // Agregar un evento click al botón "Log In"
