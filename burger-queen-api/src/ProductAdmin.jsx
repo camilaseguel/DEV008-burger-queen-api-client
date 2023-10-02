@@ -1,23 +1,32 @@
+import { ProductList } from './ProductList'
+import './ProductAdmin.css';
+
 export function ProductAdmin() {
 
+  
   return (
     <>
-      <header className="title-productlist">
-        <h2>BurgerQueen. Product List</h2>
-      </header>
-      <div className="bar-name-product">
+      <header className="title-productAdmin">
+        <h2>Product List/ADMIN</h2>
         <button className="btn-create-product">Create New Product</button>
-      </div>
-      <section className="header-productlist">
-        <div className="header-productlist-item">Name Product</div>
-        
-        <div className="header-productlist-item">Type</div>
-        <div className="header-productlist-item">Price</div>
-        <div className="header-productlist-item">Image</div>
-        <div className="header-productlist-item">Add</div>
-        <div className="header-productlist-item">Delete</div>
-      </section>
-
+      </header>
+      <div className='container-product'>
+      <table >
+        <thead>
+          <tr className='title-header'>
+            <th className='columns'>Name</th>
+            <th className='columns'>Type</th>
+            <th className='columns'>Price</th>
+            <th className='columns'>Image</th>
+            <th className='columns'>Add</th>
+            <th className='columns'>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ProductList />
+        </tbody>
+      </table>
+    </div >
     </>
   )
 }
