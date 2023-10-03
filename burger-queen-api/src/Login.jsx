@@ -29,7 +29,7 @@ export function Login() {
       loginUser(data.email, data.password).then((response) => {
 
         localStorage.setItem('token', response.accessToken)
-        navigate("/ProductAdmin");
+        navigate("/ProductWaiter");
       }).catch((error) => {
         //Manejar el error aquí, por ejemplo, mostrar una alerta
         console.error('Error en la solicitud:', error);

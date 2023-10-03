@@ -1,19 +1,19 @@
 import { ProductList } from './ProductList'
 import { useState } from 'react';
-import './ProductAdmin.css';
+// import './ProductAdmin.css';
 
 export function ProductAdmin() {
 
-  const [order, setOrder] = useState({
-    clientName: "",
-    products: [],
-  });
+//   const [order, setOrder] = useState({
+//     clientName: "",
+//     products: [],
+//   });
 
-  const handleAdd = (product) => {
-    setOrder({
-      ...order, products: [...order.products, { product: product, qty: 1 }]
-    })
-  }
+//   const handleAdd = (product) => {
+//     setOrder({
+//       ...order, products: [...order.products, { product: product, qty: 1 }]
+//     })
+//   }
 
   return (
     <>

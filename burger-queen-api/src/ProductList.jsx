@@ -11,11 +11,6 @@ export function ProductList({onAdd}) {
     });
   }, []);
 
-  
-
-  const handleDelete = () => {
-
-  }
 
   return (
     <>
@@ -27,7 +22,6 @@ export function ProductList({onAdd}) {
           <td className="columns">{product.price}</td>
           <td className="columns"><img className="img-product" src={product.image} alt="Image product" /></td>
           <td className="columns"><button onClick={() => onAdd(product)} className="btn-add">Add</button></td>
-          <td className="columns"><button onClick={handleDelete} className="btn-delete">Delete</button></td>
         </tr>
       ))}
 
