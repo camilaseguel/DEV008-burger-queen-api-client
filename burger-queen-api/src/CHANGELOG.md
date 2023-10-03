@@ -1,3 +1,26 @@
+## <1.2.0> - <2023-10-04>
+
+### Added
+- 5b5bfe4 Added order waiter (camilaseguel) 2023-10-03
+- df02716 Added handleAdd order (camilaseguel) 2023-10-02
+- ba55288 Added product admin (camilaseguel) 2023-09-29
+- bdca513 Added librery of jest-dom (Dani-dan99) 2023-09-28
+- 1980bf4 Entorno de test Listo (camilaseguel) 2023-09-28
+
+
+### Changed
+- 9723304 Change style productlist and productadmin (camilaseguel) 2023-10-02
+- 4ce91c5 changed en login (camilaseguel) 2023-09-28
+
+
+### Fixed
+- 1f2d210 entorno para test dentro de la carpeta (camilaseguel) 2023-09-28
+- a816b92 entorno para pruebas (camilaseguel) 2023-09-28
+
+
+### Removed
+- 5346aff Borrar archivos inecesarios (Dani-dan99) 2023-09-28
+- 51ea4e8 Remove useState error (camilaseguel) 2023-09-28
 ## <1.1.0> - <2023-09-26>
 
 ### Sprint learnings
