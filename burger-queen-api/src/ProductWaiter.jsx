@@ -80,7 +80,7 @@ export function ProductWaiter() {
         </table>
       </div>
 
-      <section className='orderWaiter'>
+      <section className='styleOrder'>
         <div className='orderWaiter'>
           <label className='label-order'>Client Name</label>
           <input
