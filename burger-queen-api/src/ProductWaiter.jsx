@@ -35,7 +35,18 @@ export function ProductWaiter() {
       });
     }
   };
+  const handleDelete = (productToDelete) => {
+    // Filtrar los productos para eliminar el producto deseado
+    const updatedProducts = order.products.filter(
+      (orderItem) => orderItem.product.id !== productToDelete.id
+    );
 
+    // Actualizar el estado con la lista de productos actualizada
+    setOrder({
+      ...order,
+      products: updatedProducts,
+    });
+  };
   // Calcula la suma total de precios
 
   const totalPrice = order.products.reduce((total, orderItem) => {
@@ -91,6 +102,7 @@ export function ProductWaiter() {
               <li key={orderItem.id}>
                 {orderItem.product.name} ({orderItem.qty}) Price:
                 {orderItem.product.price}
+                <button onClick={() => handleDelete(orderItem.product)}>Remove</button>
               </li>
             );
           })}
