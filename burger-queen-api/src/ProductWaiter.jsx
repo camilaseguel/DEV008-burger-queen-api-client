@@ -80,7 +80,7 @@ export function ProductWaiter() {
         </table>
       </div>
 
-      <section>
+      <section className='orderWaiter'>
         <div className='orderWaiter'>
           <label className='label-order'>Client Name</label>
           <input
@@ -99,15 +99,16 @@ export function ProductWaiter() {
         <ul className='container-order'>
           {order.products.map((orderItem) => {
             return (
-              <li key={orderItem.id}>
+              <li className='order-list' key={orderItem.id}>
                 {orderItem.product.name} ({orderItem.qty}) Price:
                 {orderItem.product.price}
-                <button onClick={() => handleDelete(orderItem.product)}>Remove</button>
+                <button className='btn-remove' onClick={() => handleDelete(orderItem.product)}>Remove</button>
               </li>
             );
           })}
-          <li>Total Price: ${totalPrice}</li>
+          <li className='total-price'>Total Price: ${totalPrice}</li>
         </ul>
+        <button className='btn-sendOrder'>Send Order</button>
       </section>
     </>
   );
