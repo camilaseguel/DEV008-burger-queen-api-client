@@ -1,5 +1,5 @@
 import { ProductList } from './ProductList';
-// import { OrderWaiter } from './OrderWaiter';
+import { sendOrder } from './apiRequests';
 import { useState } from 'react';
 
 import './ProductWaiter.css';
@@ -8,6 +8,8 @@ export function ProductWaiter() {
   const [order, setOrder] = useState({
     clientName: '',
     products: [],
+
+
   });
 
   const handleAdd = (productToAdd) => {
@@ -47,6 +49,24 @@ export function ProductWaiter() {
       products: updatedProducts,
     });
   };
+
+  const handleSubmitOrder = (order) => {
+    console.log(order)
+    const objOrder = {
+      clientName: order.clientName,
+      products: order.products,
+      status: 'pending',
+      dateEntry: new Date()
+    }
+    sendOrder(objOrder).then((orderApi) => {
+      console.log(orderApi.id)
+      //mostrar un mensaje o resumen de la orden a la mesera
+      //reset de la interfaz para una nueva orden (campo de nombre, mesaje y orden)
+      //
+    }).catch((error) => {
+      alert(error.message)
+    })
+  }
   // Calcula la suma total de precios
 
   const totalPrice = order.products.reduce((total, orderItem) => {
@@ -80,19 +100,22 @@ export function ProductWaiter() {
         </table>
       </div>
 
-      <section className='styleOrder'>
+      <section className='styleOrder' onSubmit={handleSubmitOrder}>
         <div className='orderWaiter'>
           <label className='label-order'>Client Name</label>
           <input
             type='text'
             className='input-order'
             placeholder='client name'
+          
           ></input>
           <label className='label-order'>N°Table</label>
           <input
             type='text'
             className='input-order'
             placeholder='number table'
+            value={order.clientName}
+            onChange={(e) => setOrder({ ...order, clientName: e.target.value })}
           ></input>
         </div>
 
@@ -108,7 +131,7 @@ export function ProductWaiter() {
           })}
           <li className='total-price'>Total Price: ${totalPrice}</li>
         </ul>
-        <button className='btn-sendOrder'>Send Order</button>
+        <button className='btn-sendOrder' onClick={() => handleSubmitOrder(order)}>Send Order</button>
       </section>
     </>
   );

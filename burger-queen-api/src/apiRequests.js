@@ -5,7 +5,7 @@ export function loginUser(email, password) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
-  }).then((response)=>{
+  }).then((response) => {
     return response.json();
 
   })
@@ -13,7 +13,7 @@ export function loginUser(email, password) {
       if (typeof response === "string") {
         throw new Error(response);
       }
-  return response
+      return response
     })
 
 }
@@ -31,6 +31,28 @@ export function getProducts() {
   })
     .then((response) => {
       return response.json()
+    })
+
+}
+
+export function sendOrder(order) {
+  const token = localStorage.getItem('token')
+  return fetch('http://localhost:8080/orders', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify(order),
+  }).then((response) => {
+    return response.json();
+
+  })
+    .then((response) => {
+      if (typeof response === "string") {
+        throw new Error(response);
+      }
+      return response
     })
 
 }

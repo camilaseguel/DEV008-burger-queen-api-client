@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom"
 import { Login } from './Login'
 import { ProductList } from './ProductList'
 import { ProductWaiter } from "./ProductWaiter"
-// import { OrderWaiter } from "./OrderWaiter"
+import { ViewChef } from "./ViewChef"
 
 export function App() {
   //const [count, setCount] = useState(0)
@@ -16,7 +16,7 @@ export function App() {
         <Route path="/" element={< Login />} />
         <Route path="/ProductList" element={< ProductList />} />
         <Route path="/ProductWaiter" element={< ProductWaiter />} />
-        {/* <Route path="/OrderWaiter" element={< OrderWaiter />} /> */}
+        <Route path="/ViewChef" element={< ViewChef />} />
         
       </Routes>
 
