@@ -64,10 +64,10 @@ export function ProductWaiter() {
     sendOrder(objOrder)
     .then((orderApi) => {
       // Mapear los nombres de los productos
-      const productNames = orderApi.products.map((product) => product.name);
+      const productNames = orderApi.products.map((product) => product.product.name);
 
       // Crear el mensaje de resumen de la orden
-      const message = `Order ID: ${orderApi.id}, Client Name: ${orderApi.clientName} Products: ${productNames} shipping status: successful `;
+      const message = `Order ID: ${orderApi.id}, Client Name: ${orderApi.clientName} Products: ${productNames} Shipping status: successful `;
       setOrderMessage(message);
       setShowOrderSummary(true)
       //console.log(orderApi.id)
