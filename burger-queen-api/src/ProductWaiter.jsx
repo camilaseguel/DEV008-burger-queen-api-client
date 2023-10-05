@@ -12,6 +12,9 @@ export function ProductWaiter() {
 
   });
 
+  const [showOrderSummary, setShowOrderSummary] = useState(false);
+  const [orderMessage, setOrderMessage] = useState('');
+  
   const handleAdd = (productToAdd) => {
     // Verifica si el producto ya está en la lista
 
@@ -58,11 +61,23 @@ export function ProductWaiter() {
       status: 'pending',
       dateEntry: new Date()
     }
-    sendOrder(objOrder).then((orderApi) => {
-      console.log(orderApi.id)
-      //mostrar un mensaje o resumen de la orden a la mesera
+    sendOrder(objOrder)
+    .then((orderApi) => {
+      // Mapear los nombres de los productos
+      const productNames = orderApi.products.map((product) => product.name);
+
+      // Crear el mensaje de resumen de la orden
+      const message = `Order ID: ${orderApi.id}, Client Name: ${orderApi.clientName} Products: ${productNames} shipping status: successful `;
+      setOrderMessage(message);
+      setShowOrderSummary(true)
+      //console.log(orderApi.id)
+
       //reset de la interfaz para una nueva orden (campo de nombre, mesaje y orden)
-      //
+       setOrder({
+        clientName: '',
+        products: [],
+      });
+  
     }).catch((error) => {
       alert(error.message)
     })
@@ -107,15 +122,9 @@ export function ProductWaiter() {
             type='text'
             className='input-order'
             placeholder='client name'
-          
-          ></input>
-          <label className='label-order'>N°Table</label>
-          <input
-            type='text'
-            className='input-order'
-            placeholder='number table'
             value={order.clientName}
             onChange={(e) => setOrder({ ...order, clientName: e.target.value })}
+          
           ></input>
         </div>
 
@@ -133,6 +142,11 @@ export function ProductWaiter() {
         </ul>
         <button className='btn-sendOrder' onClick={() => handleSubmitOrder(order)}>Send Order</button>
       </section>
+      {showOrderSummary && (
+  <div className="order-summary">
+    <p>{orderMessage}</p>
+  </div>
+)}
     </>
   );
 }
