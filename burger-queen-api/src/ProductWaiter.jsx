@@ -144,7 +144,7 @@ export function ProductWaiter() {
       </section>
       {showOrderSummary && (
   <div className="order-summary">
-    <p>{orderMessage}</p>
+    <li>{orderMessage}</li>
   </div>
 )}
     </>
