@@ -1,0 +1,109 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    margin: 2%;
+    background-color: #FFFF;
+    
+    /* text-align: center;
+    align-items: normal; */
+    
+  
+  }
+  .title-productAdmin{
+    background-color:white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin: 3%;
+ 
+  }
+
+.logobqac{
+
+  
+  width: 20%;
+  height: 20%;
+}
+
+  .container-product{
+    display: grid;
+    gap:10px;
+    margin: 1%;
+    font-size: 1rem;
+    border: 1px solid #FF896E;
+    
+    
+  }
+  .columns{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #FF896E;
+    
+  }
+  .title-header{
+    background-color: #FF896E;
+  
+  }
+  .styleOrder{
+    padding: 5px;
+    border-radius: 25px;
+    background-color: #fdecb0;
+    
+  }
+  .orderWaiter{
+    display: flex;
+    justify-content: space-around;
+    margin: 3% 3% 3% 1%;
+    
+  }
+  .label-order{
+    font-size: 1.5rem;
+    color:#191919;
+  }
+
+  .input-order{
+    width: auto;
+    height: 40px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .container-order{
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 5% 3% 3% 5%;
+    font-size: 1rem;
+  }
+  .order-list{
+    margin: 1%;
+  }
+  .btn-remove{
+    border: 1px solid #bd0003;
+    color: #bd0003;
+    position: fixed;
+    right: 125px;
+    padding: 7px;
+    font-size: .9rem;
+    margin: -0.5%;
+  }
+  .total-price{
+    margin: 2% 3% 3% 5%;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .btn-sendOrder{
+    border: 1px solid green;
+    color: green;
+    position: fixed;
+    margin-top: -70px;
+    right: 500px;
+    padding: 7px;
+    font-size: 1.5rem;
+  }

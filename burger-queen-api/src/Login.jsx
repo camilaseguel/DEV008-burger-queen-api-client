@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { loginUser } from './apiRequests';
+import './Login.css';
+
 
 export function Login() {
   const [data, setData] = useState({
@@ -27,7 +29,7 @@ export function Login() {
       loginUser(data.email, data.password).then((response) => {
 
         localStorage.setItem('token', response.accessToken)
-        navigate("/ProductList");
+        navigate("/ProductWaiter");
       }).catch((error) => {
         //Manejar el error aquí, por ejemplo, mostrar una alerta
         console.error('Error en la solicitud:', error);
@@ -38,7 +40,7 @@ export function Login() {
 
   return (
     <>
-      <img className='logobq' src='./assetsburgerqueen/logoburgerqueen.png' alt='logo' />
+      <img className='logobq' src='./assetsburgerqueen/burger-queen-logo.png' alt='logo' />
       <section className='containerLogIn'>
         <form className='FormLogIn' onSubmit={handleSubmit}>
           <label className='label-input'>Email</label>

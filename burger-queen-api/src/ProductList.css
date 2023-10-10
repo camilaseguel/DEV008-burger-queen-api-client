@@ -1,0 +1,14 @@
+.img-product {
+    height: 12%;
+    width: 12%;
+
+}
+
+.btn-add {  
+    border: 2px solid #368a29;
+
+}
+
+.btn-delete {
+    border: 2px solid #bd0003;
+}

@@ -1,7 +1,8 @@
 import { getProducts } from "./apiRequests"
 import { useEffect, useState } from "react"
+import './ProductList.css';
 
-export function ProductList() {
+export function ProductList({onAdd}) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -12,20 +13,18 @@ export function ProductList() {
 
   return (
     <>
-      <h2>BurgerQueen</h2>
-      <section>
-        <ul>
-          {products.map((product) => (
-            <li key={product.id}>
-              <p><strong>Product:</strong> {product.name}</p>
-              <p><strong>Type:</strong> {product.type}</p>
-              <p><strong>Price:</strong> {product.price}</p>
-              <img src={product.image} alt="Image product" />
-              {/* <p>{product.image}</p> */}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {products.map((product) => (
+        <tr key={product.id}>
+
+          <td className="columns">{product.name}</td>
+          <td className="columns">{product.type}</td>
+          <td className="columns">{product.price}</td>
+          <td className="columns"><img className="img-product" src={product.image} alt="Image product" /></td>
+          <td className="columns"><button onClick={() => onAdd(product)} className="btn-add">Add</button></td>
+        </tr>
+      ))}
+
+
     </>
   );
 }
