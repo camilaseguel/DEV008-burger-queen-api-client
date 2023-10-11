@@ -1,5 +1,3 @@
-import { ProductList } from "./ProductList";
-import { ProductWaiter } from "./ProductWaiter";
 import { getOrders } from "./apiRequests";
 
 import { useState, useEffect } from "react";
@@ -23,6 +21,7 @@ export function ViewChef() {
                 {view.map((order) => (
 
                     <div className="order-list" key={order.id}>
+
                         Id: {order.id} Client: {order.clientName}  Products: {Object.keys(order.products).map((productId) => (
                             <div key={productId}>
                                 Product Name: {order.products[productId].product.name}
@@ -30,7 +29,6 @@ export function ViewChef() {
                             </div>
                         ))} Status:  {order.status} dateEntry:  {order.dateEntry}
                     </div>
-
                 ))}
             </section>
         </>
