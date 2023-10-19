@@ -55,6 +55,7 @@ export function ProductWaiter() {
 
   const handleSubmitOrder = (order) => {
     console.log(order)
+    
     const objOrder = {
       clientName: order.clientName,
       products: order.products,

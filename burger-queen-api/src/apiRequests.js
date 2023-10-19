@@ -56,3 +56,20 @@ export function sendOrder(order) {
     })
 
 }
+
+export function getOrders() {
+  const token = localStorage.getItem('token')
+
+  return fetch('http://localhost:8080/orders', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`,
+    },
+
+  })
+    .then((response) => {
+      return response.json()
+    })
+
+}
