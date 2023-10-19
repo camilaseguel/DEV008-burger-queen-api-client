@@ -39,3 +39,10 @@ body {
 .checkBox {
   width: 10%;
 }
+
+.markAsCompleted{
+  display: flex;
+  margin-left: 700px;
+  background-color: #66cf55;
+  border: 2px solid #018001
+}

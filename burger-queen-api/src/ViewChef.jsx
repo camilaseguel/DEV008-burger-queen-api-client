@@ -5,16 +5,34 @@ import { useState, useEffect } from 'react';
 
 import './viewChef.css'
 
-
 export function ViewChef() {
   const [view, setView] = useState([]);
-  console.log(view);
 
   useEffect(() => {
     getOrders().then((result) => {
-      setView(result); // Almacena los resultados en el estado
+      // Agregar un campo para almacenar el tiempo de preparación
+      const ordersWithTime = result.map((order) => ({
+        ...order,
+        preparationTime: null, // Inicialmente nulo
+      }));
+      setView(ordersWithTime);
     });
   }, []);
+
+  const markAsCompleted = (orderId) => {
+    const updatedView = view.map((order) => {
+      if (order.id === orderId) {
+        // Marcar el pedido como completado y registrar la hora actual
+        return {
+          ...order,
+          status: 'completed',
+          preparationTime: new Date(),
+        };
+      }
+      return order;
+    });
+    setView(updatedView);
+  };
 
   return (
     <>
@@ -32,13 +50,25 @@ export function ViewChef() {
               </div>
             ))}{' '}
             Status: {order.status} dateEntry: {order.dateEntry}
-            <label className='containerBox'>Ready
-            <input className='checkBox' type='checkbox' name='myCheckbox' defaultChecked={false} />
-            <span className='checkmark'></span>
-            </label>
+            {order.status !== 'completed' && (
+              <button className='markAsCompleted'onClick={() => markAsCompleted(order.id)}>
+                Order Ready!
+              </button>
+            )}
+            {order.preparationTime && order.status === 'completed' && (
+              <div>
+                Time Taken to Prepare: {calculateTimeTaken(order.dateEntry, order.preparationTime)} minutes
+              </div>
+            )}
           </div>
         ))}
       </section>
     </>
   );
+}
+
+// Función para calcular el tiempo transcurrido en minutos
+function calculateTimeTaken(entryTime, completionTime) {
+  const diffInMilliseconds = completionTime - new Date(entryTime);
+  return Math.round(diffInMilliseconds / 60000); // 1 min = 60000 ms
 }
