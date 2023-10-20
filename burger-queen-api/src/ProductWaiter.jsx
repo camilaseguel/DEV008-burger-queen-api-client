@@ -132,7 +132,7 @@ export function ProductWaiter() {
         <ul className='container-order'>
           {order.products.map((orderItem) => {
             return (
-              <li className='order-list' key={orderItem.id}>
+              <li className='order-list-send' key={orderItem.id}>
                 {orderItem.product.name} ({orderItem.qty}) Price:
                 {orderItem.product.price}
                 <button className='btn-remove' onClick={() => handleDelete(orderItem.product)}>Remove</button>

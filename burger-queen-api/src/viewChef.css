@@ -42,7 +42,7 @@ body {
 
 .markAsCompleted{
   display: flex;
-  margin-left: 700px;
+  margin: 2% 1% 0% 80%;
   background-color: #66cf55;
   border: 2px solid #018001
 }
