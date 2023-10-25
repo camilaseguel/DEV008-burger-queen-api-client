@@ -73,3 +73,30 @@ export function getOrders() {
     })
 
 }
+
+export function orderReady() {
+  const token = localStorage.getItem('token')
+
+  return fetch('http://localhost:8080/orders/2', {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      "status": "delivered",
+      "dateProcessed": "2022-03-05 16:00"
+    }),
+  }).then((response) => {
+    console.log(response)
+    return response.json();
+
+  })
+    .then((response) => {
+      if (typeof response === "string") {
+        throw new Error(response);
+      }
+      return response
+    })
+
+}

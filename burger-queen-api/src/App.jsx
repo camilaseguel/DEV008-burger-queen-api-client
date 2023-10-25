@@ -7,6 +7,7 @@ import { Login } from './Login'
 import { ProductList } from './ProductList'
 import { ProductWaiter } from "./ProductWaiter"
 import { ViewChef } from "./ViewChef"
+import { OrderReadytoDeliver } from "./OrderReadytoDeliver"
 
 export function App() {
   //const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ export function App() {
         <Route path="/ProductList" element={< ProductList />} />
         <Route path="/ProductWaiter" element={< ProductWaiter />} />
         <Route path="/ViewChef" element={< ViewChef />} />
+        <Route path="/OrderReadytoDeliver" element={< OrderReadytoDeliver />} />
         
       </Routes>
 

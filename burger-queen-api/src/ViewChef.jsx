@@ -13,7 +13,7 @@ export function ViewChef() {
       // Agregar un campo para almacenar el tiempo de preparación
       const ordersWithTime = result.map((order) => ({
         ...order,
-        preparationTime: null, // Inicialmente nulo
+        dateProcessed: null, // Inicialmente nulo
       }));
       setView(ordersWithTime);
     });
@@ -26,7 +26,7 @@ export function ViewChef() {
         return {
           ...order,
           status: 'completed',
-          preparationTime: new Date(),
+          dateProcessed: new Date(),
         };
       }
       return order;
@@ -55,9 +55,9 @@ export function ViewChef() {
                 Order Ready!
               </button>
             )}
-            {order.preparationTime && order.status === 'completed' && (
+            {order.dateProcessed && order.status === 'completed' && (
               <div>
-                Time Taken to Prepare: {calculateTimeTaken(order.dateEntry, order.preparationTime)} minutes
+                Time Taken to Prepare: {calculateTimeTaken(order.dateEntry, order.dateProcessed)} minutes
               </div>
             )}
           </div>
