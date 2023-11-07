@@ -75,28 +75,32 @@ export function getOrders() {
 }
 
 export function orderReady() {
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('token');
 
   return fetch('http://localhost:8080/orders/2', {
-    method: "PATCH",
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      'authorization': `Bearer ${token}`
+      'authorization': `Bearer ${token}`,
     },
     body: JSON.stringify({
       "status": "delivered",
       "dateProcessed": "2022-03-05 16:00"
     }),
-  }).then((response) => {
-    console.log(response)
-    return response.json();
-
   })
-    .then((response) => {
-      if (typeof response === "string") {
-        throw new Error(response);
-      }
-      return response
-    })
-
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Error al actualizar la orden');
+    }
+    return response.json();
+  })
+  .then((updatedOrder) => {
+    // Aquí puedes acceder a la orden actualizada
+    console.log('Orden actualizada:', updatedOrder);
+    return updatedOrder;
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    throw error;
+  });
 }

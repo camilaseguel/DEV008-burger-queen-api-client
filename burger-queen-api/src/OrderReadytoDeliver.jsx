@@ -10,7 +10,7 @@ const [deliver, setDeliver] = useState([])
 
 useEffect(()=>{
     orderReady().then((result)=>{
-        console.log(result)
+        return result
     })
 })
 
