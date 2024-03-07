@@ -3,17 +3,17 @@ import { ProductWaiter } from './ProductWaiter';
 import { getOrders } from './apiRequests';
 import { useState, useEffect } from 'react';
 
-import './viewChef.css'
+import './viewChef.css';
 
 export function ViewChef() {
   const [view, setView] = useState([]);
+  const [completedOrders, setCompletedOrders] = useState([]);
 
   useEffect(() => {
     getOrders().then((result) => {
-      // Agregar un campo para almacenar el tiempo de preparación
       const ordersWithTime = result.map((order) => ({
         ...order,
-        dateProcessed: null, // Inicialmente nulo
+        dateProcessed: null,
       }));
       setView(ordersWithTime);
     });
@@ -22,7 +22,6 @@ export function ViewChef() {
   const markAsCompleted = (orderId) => {
     const updatedView = view.map((order) => {
       if (order.id === orderId) {
-        // Marcar el pedido como completado y registrar la hora actual
         return {
           ...order,
           status: 'completed',
@@ -32,6 +31,9 @@ export function ViewChef() {
       return order;
     });
     setView(updatedView);
+
+    const completedOrder = updatedView.find((order) => order.id === orderId);
+    setCompletedOrders([completedOrder, ...completedOrders]);
   };
 
   return (
@@ -51,13 +53,18 @@ export function ViewChef() {
             ))}{' '}
             Status: {order.status} dateEntry: {order.dateEntry}
             {order.status !== 'completed' && (
-              <button className='markAsCompleted'onClick={() => markAsCompleted(order.id)}>
+              <button
+                className='markAsCompleted'
+                onClick={() => markAsCompleted(order.id)}
+              >
                 Order Ready!
               </button>
             )}
             {order.dateProcessed && order.status === 'completed' && (
               <div>
-                Time Taken to Prepare: {calculateTimeTaken(order.dateEntry, order.dateProcessed)} minutes
+                Time Taken to Prepare:{' '}
+                {calculateTimeTaken(order.dateEntry, order.dateProcessed)}{' '}
+                minutes
               </div>
             )}
           </div>
